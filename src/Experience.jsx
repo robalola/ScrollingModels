@@ -27,8 +27,8 @@ export default function Experience() {
       {/* <ScrollControls damping={0.2} pages={2}>
         <JulianTest />
       </ScrollControls> */}
-      <Scene1 />
-      {/* <Scene2 /> */}
+      {/* <Scene1 /> */}
+      <Scene2 />
       <mesh
         receiveShadow
         position-y={-1}
