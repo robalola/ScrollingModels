@@ -28,12 +28,21 @@ export default {
     },
   ],
   server: {
-    host: true, // Open to local network and display URL
-    open: !("SANDBOX_URL" in process.env || "CODESANDBOX_HOST" in process.env), // Open if it's not a CodeSandbox
+    host: true,
+    port: 2222,
+    strictPort: true,
+    hmr: {
+      clientPort: 443, // This is crucial for CodeSandbox
+    },
+    // Handle CodeSandbox specific environment
+    watch: {
+      usePolling: true,
+      interval: 100,
+    },
   },
   build: {
-    outDir: "../dist", // Output in the dist/ folder
-    emptyOutDir: true, // Empty the folder first
-    sourcemap: true, // Add sourcemap
+    outDir: "../dist",
+    emptyOutDir: true,
+    sourcemap: true,
   },
 };
