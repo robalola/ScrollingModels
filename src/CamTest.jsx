@@ -21,11 +21,13 @@ export default function CamTest(props) {
   useEffect(() => {
     actions["CameraTest"].play().paused = true;
   }, []);
-  useFrame(
-    () =>
-      (actions["CameraTest"].time =
-        actions["CameraTest"].getClip().duration * scroll.offset)
-  );
+  useFrame(() => {
+    const currentScrollPos = scroll.offset;
+    // console.log("Scroll Object:", scroll);
+    // console.log("Scroll Offset:", scroll.offset);
+    actions["CameraTest"].time =
+      actions["CameraTest"].getClip().duration * scroll.offset;
+  });
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
