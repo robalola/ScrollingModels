@@ -32,9 +32,9 @@ export default {
     port: 2222,
     strictPort: true,
     hmr: {
-      clientPort: 443, // This is crucial for CodeSandbox
+      clientPort: process.env.CODESANDBOX_SSE ? 443 : undefined,
+      host: process.env.CODESANDBOX_SSE ? "0.0.0.0" : undefined,
     },
-    // Handle CodeSandbox specific environment
     watch: {
       usePolling: true,
       interval: 100,
